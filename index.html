@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <link href="./assets/css/vendors/icomoon.css" rel="stylesheet"/>
+  <link href="./assets/css/styles.css" rel="stylesheet"/>
+</head>
+
+<body>
+  <div class="modal-overlay">
+    <div class="helper"></div>
+    <div class="wrapper-modal-container display-inline" style="max-width: 680px;">
+      <div class="modal-container ">
+        <div class="modal-header-main">
+          <div class="display-table">
+            <div class="display-table-cell align-left">
+              <div class="wrapper-dropdown ico display-inline button-left ">
+                <a href="#" title="" class="button-dropdown button-arrow">
+                  <span class="helper"></span><i class="icon-keyboard_arrow_down display-inline"></i>
+                </a>
+                <div class="modal-dropdown modal-dropdown-left">
+                  <div class="modal-dropdown-inner">
+                    <a href="#" class="modal-dropdown-item" @click="updateActiveMerchant({ merchant: merchant})"
+                      v-for="merchant in merchants">
+                      <div class="display-table">
+                        <div class="display-table-cell">
+                          <!-- <img :src="require('../assets/images/' + merchant.img)" width="20" alt="" class="img  image-block"> -->
+                          <img src="./assets/images/merchant.img" width="20" alt="" class="img  image-block">
+                        </div>
+                        <div class="display-table-cell txt">
+                          {{merchant.name}}
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <a href="#" v-bind:title="activeMerchant.name" class="display-inline button-left">
+                <!-- <img :src="require('../assets/images/' + activeMerchant.img)" width="32" class="img image-block"> -->
+                <img src="assets/images/isotipo.png" alt="Allen Edmonds" width="32" class="image-block" />
+              </a>
+              <div class="display-inline button-left">
+                Overstock
+                <!-- {{activeMerchant.name}} -->
+              </div>
+            </div>
+            <div class="display-table-cell align-right">
+              <ul class="modal-menu display-inline">
+                <li>
+                  <div class="helper"></div>
+                  <div class="link-ico display-inline">
+                    <div class="wrapper-dropdown ico display-inline">
+                      <a href="#" title="" class="button-dropdown button-arrow">
+                        <span class="helper"></span><i class="icon-keyboard_arrow_down display-inline"></i>
+                      </a>
+                      <div class="modal-dropdown">
+                        <div class="modal-dropdown-inner">
+                          <a href="#" class="modal-dropdown-item" @click="updateActiveOrder({ order: order})"
+                            v-for="order in orders">
+                            <div class="display-table">
+                              <div class="display-table-cell">
+                                <img src="./assets/images/icon_box3@2x.png" width="20" alt="" class="img icon_box"
+                                />
+                              </div>
+                              <div class="display-table-cell txt">
+                                order id
+                                <!-- {{order.orderId}} -->
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="txt display-inline">
+                      <div class="align-left">
+                        <div>
+                          ORDER
+                        </div>
+                        <strong>
+                          <!-- {{activeOrder.orderId}} -->
+                          ...
+                        </strong>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="helper"></div>
+                  <div class="link-ico display-inline">
+                    <div class="wrapper-dropdown ico display-inline">
+                      <a href="#" title="" class="button-dropdown button-arrow">
+                        <span class="helper"></span><i class="icon-keyboard_arrow_down display-inline"></i>
+                      </a>
+                      <div class="modal-dropdown">
+                        <div class="modal-dropdown-inner">
+                          <a href="#" class="modal-dropdown-item">
+                            <div class="display-table">
+                              <div class="display-table-cell">
+                                <img src="./assets/images/icon_box3@2x.png" width="20" alt="" class="img image-block"
+                                />
+                              </div>
+                              <div class="display-table-cell txt">
+                                ALL BOXES
+                              </div>
+                            </div>
+                          </a>
+                          <a href="#" class="modal-dropdown-item" @click="updateActiveBox({ box: box})" v-for="box in boxes">
+                            <div class="display-table">
+                              <div class="display-table-cell">
+                                <img src="./assets/images/icon_box3@2x.png" width="20" alt="" class="img image-block" />
+                              </div>
+                              <div class="display-table-cell txt">
+                                box id
+                                <!-- {{box.boxId}} -->
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="txt display-inline align-left">
+                      <div>
+                        BOX
+                        <!-- {{activeBox.boxId}} -->
+                      </div>
+                      <strong>
+                        ...
+                      </strong>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="helper"></div>
+                  <div class="link-ico display-inline">
+                    <div class="wrapper-dropdown ico display-inline">
+                      <a href="#" title="" class="button-dropdown button-arrow">
+                        <span class="helper"></span><i class="icon-keyboard_arrow_down display-inline"></i>
+                      </a>
+                      <div class="modal-dropdown">
+                        <div class="modal-dropdown-inner">
+                          <a href="#" class="modal-dropdown-item">
+                            <div class="display-table">
+                              <div class="display-table-cell">
+                                <img src="./assets/images/icon_box3@2x.png" width="20" alt="" class="img image-block"
+                                />
+                              </div>
+                              <div class="display-table-cell txt">
+                                ALL BOXES
+                              </div>
+                            </div>
+                          </a>
+                          <a href="#" class="modal-dropdown-item" @click="updateActiveBox({ box: box})" v-for="box in boxes">
+                            <div class="display-table">
+                              <div class="display-table-cell">
+                                <img src="./assets/images/icon_box3@2x.png" width="20" alt="" class="img image-block" />
+                              </div>
+                              <div class="display-table-cell txt">
+                                box id
+                                <!-- {{box.boxId}} -->
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="txt display-inline align-left">
+                      <div>
+                        ITEMS
+                        <!-- {{activeBox.boxId}} -->
+                      </div>
+                      <strong>
+                        ...
+                      </strong>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="helper"></div>
+                  <div class="display-inline">
+                    <div class="wrapper-dropdown display-inline">
+                      <a href="#" title="" class="language display-inline">
+                        <span class="display-inline">
+                          <img src="assets/images/british-flag.png" alt="" class="flag language-img">
+                        </span><span class="language-text display-inline">EN</span>
+                        <span class="language-btn display-inline">
+                          <i class="icon-keyboard_arrow_down"></i>
+                        </span>
+                      </a>
+                      <div class="modal-dropdown medium">
+                        <div class="modal-dropdown-inner">
+                          <a href="#" class="modal-dropdown-item" v-for="item in activeBox.items">
+                            <div class="display-table">
+                              <div class="display-table-cell">
+                                <!-- <img :src="require('../assets/images/'+item.img)" class="img image-block"> -->
+                              </div>
+                              <div class="display-table-cell txt">
+                                <!-- {{item.name}} -->
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="inner-overlay">
+          <div class="inner-modal align-center is-opened">
+            <div class="helper"></div><!--
+            --><div class="inner-modal-form display-inline">
+              <form>
+                <h3 class="inner-modal-title">Enter email address</h3>
+                <label for="" class="inner-modal-label">Enter the email address used for your purchase.</label>
+                <input type="text" name="" value="" class="inner-modal-input">
+                <button type="button" name="button" class="inner-modal-button">
+                  SEND BUTTON
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="modal-header-secondary">
+            <div class="display-table secondary-header">
+              <div class="display-table-cell secondary-header-column align-left">
+                <div class="display-table">
+                  <div class="display-table-cell table-cell-list-with-icons-1">
+                    <div class="icon-orin-dest">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="13989.999 1290 6 21">
+                        <path id="origDest" d="M-9842-850v-4h4v4Zm1.5-5.3v-2h1v2Zm0-4v-2h1v2Zm0-4v-1.751A3.007,3.007,0,0,1-9843-868a3.009,3.009,0,0,1,3-3,3.006,3.006,0,0,1,3,3,3.006,3.006,0,0,1-2.5,2.949v1.751Zm-1.5-4.7a2.008,2.008,0,0,0,2,2,2.006,2.006,0,0,0,2-2,2.006,2.006,0,0,0-2-2A2.008,2.008,0,0,0-9842-868Z" transform="translate(23833 2160.999)"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="display-table-cell align-left table-cell-list-with-text">
+                    <ul class="list-with-icons">
+                      <li>...</li>
+                      <li>...</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="display-table-cell secondary-header-column align-center">
+                <div class="display-inline">
+                  <div class="display-table">
+                    <div class="display-table-cell table-cell-list-with-icons-2">
+                      <div class="icon-orin-dest">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="13986.999 1327 12.001 24.999">
+                          <path id="etaCarrier" d="M-9834-847h-5a1,1,0,0,1-1,1,1,1,0,0,1-1-1h-2v-6h10l1,3.5,1,1v1.5h-1a1,1,0,0,1-1,1A1,1,0,0,1-9834-847Zm-8-1h10v-.1l-.7-.7-.2-.2-.049-.252-.8-2.749H-9842Zm-1-18a5.014,5.014,0,0,1,5-5,5.012,5.012,0,0,1,5,5,5.014,5.014,0,0,1-5,5A5.016,5.016,0,0,1-9843-866Zm1,0a4.012,4.012,0,0,0,4,4,4.013,4.013,0,0,0,4-4,4.035,4.035,0,0,0-3.5-3.95v3.248l1.5-.9.5.85-3,1.85v-5.049A4,4,0,0,0-9842-866Z" transform="translate(23830.001 2197.999)"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="display-table-cell align-left table-cell-list-with-text">
+                      <ul class="list-with-icons">
+                        <li>...</li>
+                        <li>...</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="display-table-cell secondary-header-column align-right">
+                <div class="align-center display-inline">
+                  <ul class="list-centered">
+                    <li>STATUS</li>
+                    <li class="highlight">...</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-body">
+            <track-map></track-map>
+          </div>
+          <div class="modal-footer">
+            <!-- <div class="display-inline">
+            <input class="modal-footer-check"
+            v-model="updatesBar.activated"
+            @change="updateStatus"
+            type="checkbox"></input>
+            </div> -->
+            <div class="display-table">
+              <div class="display-table-cell modal-footer-left">
+                <div class="align-left">
+                  <div class="display-inline">
+                    <svg class="modal-footer-image" xmlns="http://www.w3.org/2000/svg" viewBox="13987 1368 12 13.333">
+                      <g id="notification" transform="translate(13567 809.001)">
+                        <path id="Path_330" data-name="Path 330" d="M10,8V4.667A4.011,4.011,0,0,0,6.667.733V.667A.63.63,0,0,0,6,0a.63.63,0,0,0-.667.667V.733A4.011,4.011,0,0,0,2,4.667V8a1.964,1.964,0,0,1-2,2v1.333H12V10A1.964,1.964,0,0,1,10,8Z" transform="translate(420 558.999)"/>
+                        <path id="Path_331" data-name="Path 331" d="M8.067,19.333A1.942,1.942,0,0,0,9.933,18H6.2A1.942,1.942,0,0,0,8.067,19.333Z" transform="translate(417.933 552.999)"/>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="display-inline">
+                    <p class="modal-footer-text">Notifications:</p>
+                  </div>
+                  <div class="display-inline">
+                    <div class="modal-footer-checkboxs">
+                      <div class="modal-footer-checkbox-item display-inline">
+                        <div class="modal-checkbox display-inline">
+                          <input type="checkbox" id="c-1" name="" value="" checked="checked">
+                          <label for="c-1" class="modal-checkbox-label">
+                            <div class="modal-checkbox-icon"></div>
+                          </label>
+                        </div>
+                        <label for="c-1" class="modal-checkbox-icon is-active display-inline">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="13985 1397 16 12.571">
+                            <path id="email" class="cls-1" d="M13.714,0H2.286A2.286,2.286,0,0,0,0,2.286v8a2.286,2.286,0,0,0,2.286,2.286H13.714A2.286,2.286,0,0,0,16,10.285v-8A2.286,2.286,0,0,0,13.714,0Zm0,1.143a1.143,1.143,0,0,1,.48.114L8,5.588,1.806,1.257a1.143,1.143,0,0,1,.48-.114Zm1.143,9.143a1.143,1.143,0,0,1-1.143,1.143H2.286a1.143,1.143,0,0,1-1.143-1.143V2.206L7.657,6.777a.571.571,0,0,0,.651,0l6.514-4.571.034.08Z" transform="translate(13985 1397)"/>
+                          </svg>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="display-inline">
+                    <div class="modal-footer-checkboxs">
+                      <div class="modal-footer-checkbox-item display-inline">
+                        <div class="modal-checkbox display-inline">
+                          <input type="checkbox" id="c-2" name="" value="" >
+                          <label for="c-2" class="modal-checkbox-label">
+                            <div class="modal-checkbox-icon"></div>
+                          </label>
+                        </div>
+                        <label for="c-2" class="modal-checkbox-icon display-inline">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="13985 1426 16.06 18.353">
+                            <path id="sms" class="cls-1" d="M-13930.854-1151.933a7.528,7.528,0,0,0,4.332-3.528,7.547,7.547,0,0,1-5.479-7.084,7.744,7.744,0,0,1,8.031-7.454,7.743,7.743,0,0,1,8.028,7.454,7.665,7.665,0,0,1-6.71,7.371,7.367,7.367,0,0,1-6.2,3.528A6.623,6.623,0,0,1-13930.854-1151.933Zm0-10.612a6.448,6.448,0,0,0,4.675,6l1.378.43-.717,1.231a8.883,8.883,0,0,1-1.294,1.752,6.551,6.551,0,0,0,3.157-2.64l.287-.458.545-.087a6.472,6.472,0,0,0,5.734-6.224c0-3.469-3.1-6.308-6.881-6.308S-13930.854-1166.014-13930.854-1162.545Zm9.752,2.154v-.8a5.3,5.3,0,0,0,.688.259,1.953,1.953,0,0,0,.515.084.778.778,0,0,0,.43-.112.373.373,0,0,0,.144-.318.275.275,0,0,0-.056-.2,1.158,1.158,0,0,0-.2-.171,3.635,3.635,0,0,0-.514-.259,2.225,2.225,0,0,1-.546-.346,1.676,1.676,0,0,1-.287-.371.874.874,0,0,1-.115-.49,1.074,1.074,0,0,1,.374-.829,1.548,1.548,0,0,1,1-.318c.2,0,.4.028.546.028a2.582,2.582,0,0,1,.6.2l-.286.661a3.732,3.732,0,0,0-.518-.175,1.733,1.733,0,0,0-.4-.056.478.478,0,0,0-.374.115.326.326,0,0,0-.116.287.415.415,0,0,0,.057.2.446.446,0,0,0,.175.171,6.131,6.131,0,0,0,.542.287,2.288,2.288,0,0,1,.776.545,1.069,1.069,0,0,1,.2.661,1.036,1.036,0,0,1-.4.86,1.772,1.772,0,0,1-1.091.315A2.42,2.42,0,0,1-13921.1-1160.391Zm-8.4-.031v-.8a5.327,5.327,0,0,0,.689.259,1.946,1.946,0,0,0,.514.084.744.744,0,0,0,.43-.115.362.362,0,0,0,.144-.315.276.276,0,0,0-.056-.2,1.128,1.128,0,0,0-.2-.171,3.486,3.486,0,0,0-.514-.259,2.26,2.26,0,0,1-.546-.346,1.758,1.758,0,0,1-.286-.371.866.866,0,0,1-.115-.49,1.083,1.083,0,0,1,.374-.832,1.564,1.564,0,0,1,1-.315,2.124,2.124,0,0,1,.6.087,2.531,2.531,0,0,1,.6.2l-.287.661a3.213,3.213,0,0,0-.518-.171,1.515,1.515,0,0,0-.4-.059.483.483,0,0,0-.374.115.328.328,0,0,0-.115.287.418.418,0,0,0,.028.2.509.509,0,0,0,.175.175c.084.056.259.143.542.287a2.194,2.194,0,0,1,.748.486,1,1,0,0,1,.2.661,1.04,1.04,0,0,1-.4.86,1.762,1.762,0,0,1-1.087.315A2.382,2.382,0,0,1-13929.5-1160.423Zm6.882.2v-2.21c0-.115,0-.4.027-.916h-.027l-1.032,3.126h-.775l-.976-3.154h-.028c.028.657.06,1.087.06,1.29v1.864h-.748v-4.017h1.15l.972,3.07,1.035-3.07h1.146v4.017Z" transform="translate(27917 2596)"/>
+                          </svg>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="display-table-cell align-center modal-footer-center">
+                |
+              </div>
+              <div class="display-table-cell modal-footer-right">
+                &nbsp;
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="legal-privacy align-center">
+      <p>
+        <a href="#" class="display-inline">Legal</a>
+        <span class="divider display-inline">|</span>
+        <a href="#" class="display-inline">Privacy</a>
+      </p>
+    </div>
+    <div class="logo-bottom-left">
+      <img src="../assets/images/fdx.png" width="136" alt="Fedex Crossborder" style="width: 135px; margin-top: 5px;"
+      />
+    </div>
+  </div>
+
+
+</body>
+
+</html>

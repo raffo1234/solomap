@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="13985 1258 16 16">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #eaeaea;
+      }
+
+      .cls-2 {
+        fill: #58595b;
+      }
+    </style>
+  </defs>
+  <g id="dropdown" transform="translate(13321 1130)">
+    <g id="Layer_1" data-name="Layer 1" transform="translate(664 128)">
+      <circle id="Ellipse_133" data-name="Ellipse 133" class="cls-1" cx="8" cy="8" r="8"/>
+      <path id="Path_337" data-name="Path 337" class="cls-2" d="M18.123,27.008,13.68,22.565a.626.626,0,1,1,.885-.885l3.558,3.558L21.68,21.68a.626.626,0,1,1,.885.885Z" transform="translate(-10.123 -16.123)"/>
+    </g>
+  </g>
+</svg>
